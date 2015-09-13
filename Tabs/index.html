@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs</title>
+	<script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="tabs">
+	<ul class="tab-list">
+		<li><a class="tab1 active" href="#">Section 1</a></li>
+		<li><a class="tab2" href="#">Section 2</a></li>
+		<li><a class="tab3" href="#">Section 3</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab1 active">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+		</div>
+		<div class="tab2">
+			<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+		</div>
+		<div class="tab3">
+			<p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+		</div>
+	</div>
+</div>	
+
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+.tabs{
+	width: 600px;
+	margin-top: 15px;
+}
+.tab-list {
+	list-style: none;
+	text-align: center;
+}
+.tab-list li {
+	display: inline-block;	
+}
+.tab-list li a {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	margin-right: 10px;
+	padding-top: 10px;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	text-align: center;
+	color: #777;
+	text-decoration: none;
+	box-sizing: border-box;
+	z-index: 1;
+
+}
+.tab-list .active {
+	background: #fff;
+	z-index: 10;
+}
+.tab-content {
+	position: relative;
+	top: -1px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	clear: both;
+	z-index: 1;
+}
+.tab-content > div {
+	display: none;
+}
+.tab-content .active {
+	display: block;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+
+	
+	$(".tab-list .tab1").click(function(e) {
+		e.preventDefault();
+		$(".tabs .active").removeClass("active");
+		$(".tab1").addClass("active");
+	});
+	
+	$(".tab-list .tab2").click(function(e) {
+		e.preventDefault();
+		$(".tabs .active").removeClass("active");
+		$(".tab2").addClass("active");
+	});
+	
+	$(".tab-list .tab3").click(function(e) {
+		e.preventDefault();
+		$(".tabs .active").removeClass("active");
+		$(".tab3").addClass("active");
+	});
+});
+</script>
+
+</body>
+</html>

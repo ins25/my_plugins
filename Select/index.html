@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Select</title>
+	<script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="select">
+	<div class="select_value">Выпадающий список</div>
+	<div class="select_options">
+		<div class="select_options__value">Выпадающий список 1</div>
+		<div class="select_options__value">Выпадающий список 2</div>
+		<div class="select_options__value">Выпадающий список 3</div>
+	</div>
+	<input type="hidden" name="select">
+</div><!-- end select -->
+<script>
+$(document).ready(function(){
+	$('.select').click(function(event) {
+		$(this).find('.select_options').slideToggle(300);
+	});
+	$('.select_options__value').click(function(event) {
+		$(this).parents('.select').find('.select_value').html($(this).html());
+		$(this).parents('.select').find('input').val($(this).html());
+	});
+});
+</script>
+<style>
+.select {
+    position: relative;
+    margin: 0 auto;
+    width: 250px;
+    height: 35px;
+	background: #000;
+    color: #3671b7;
+    border: 1px solid #3671b7;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.select_value {
+    position: relative;
+    line-height: 35px;
+}
+.select_value:before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: 7px;
+    width: 13px;
+    height: 10px;
+    background-image: url("select-icon.png");
+}
+.select_options {
+	font-weight: normal;
+    display: none;
+    position: absolute;
+    top: 37px;
+    left: 0px;
+    width: 100%;
+    border: 1px solid #3671b7;
+	background: #000;
+    overflow: hidden;
+    z-index: 100;
+}
+.select_options__value{
+	padding: 4px 0;
+}
+.select_options__value:hover{
+	background: #3671b7;
+	color: #000;
+}
+</style>
+</body>
+</html>

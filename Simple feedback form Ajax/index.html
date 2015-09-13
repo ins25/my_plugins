@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery.maskedinput.min.js"></script>
+	<title>Контактная форма с технологией Ajax</title>
+</head>
+<body>
+<div class="form-container">
+	<h2>Контактная форма</h2>
+	<div id="note"></div>
+	<div id="fields">
+		<form id="ajax-contact-form" action="">
+			<input type="text" name="name" placeholder="Введите имя"><br>
+			<input class="phone" type="text" name="tel" placeholder="Введите телефон"><br>
+			<input type="text" name="email" placeholder="Введите e-mail"><br>
+			<input class="btn" type="submit" name="submit" value="Отправить">
+		</form>
+	</div>
+</div><!-- end form-container -->
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.form-container{
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+input[type="text"]{
+	margin-bottom: 5px;
+	padding-left: 10px;
+	width: 100%;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #000;
+}
+.notification_error {
+	border: 1px solid red;
+	color: red;
+	width: 90%;
+	margin: 15px 0;
+	padding: 0 4px;
+	background: #F8F0F1;
+	text-align: left;
+	border-radius: 5px;
+}
+.notification_ok {
+	border: 1px solid green;
+	color: green;
+	width: 90%;
+	margin: 15px 0;
+	padding: 0 4px;
+	background: #f5f9fd;
+	text-align: center;
+	border-radius: 5px;
+}
+</style>
+<script>
+$(document).ready(function() {
+	// Обработчик формы
+	$("#ajax-contact-form").submit(function() {
+	var str = $(this).serialize();
+	$.ajax({
+		type: "POST",
+		url: "contact.php",
+		data: str,
+		success: function(msg) {
+			if(msg == 'OK') {
+				result = '<div class="notification_ok">Ваше сообщение было отправлено</div>';
+			} else {
+				result = msg;
+			}
+			$('#note').html(result).fadeIn().delay(2000).fadeOut("slow");
+			$(".btn").on( "click", function() {
+				$.when( effect() ).done(function() {
+				});
+			});
+		}
+	});
+	return false;
+	});
+	// Маска на форму
+	$(".phone").mask("+7 (999) 999 99 99");
+});
+</script>
+</html>

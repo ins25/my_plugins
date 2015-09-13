@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Radio</title>
+</head>
+<body>
+<div class="radio">
+	<form action="#" method="post">
+		<div class="radio-block">
+			<input type="radio" name="answer" id="yes" value="yes" checked>
+			<label for="yes">Да</label>
+		</div>
+		<div class="radio-block">
+			<input type="radio" name="answer" id="no" value="no">
+			<label for="no">Нет</label>
+		</div>
+		<div class="radio-block">
+			<input type="radio" name="answer" id="maybe" value="maybe">
+			<label for="maybe">Не уверен</label>
+		</div>
+	</form>
+</div>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+.radio{
+	margin: 0 auto;
+	padding-left: 25px;
+	width: 150px;
+	border: 2px solid #000;
+}
+.radio-block{
+	margin-bottom: 5px;
+}
+input[type="radio"]{
+	display: none;
+}
+label{
+	position: relative;
+	cursor: pointer;
+}
+label:before{
+	content: '';
+	display: block;
+	position: absolute;
+	top: 1px;
+	left: -25px;
+	width: 18px;
+	height: 18px;
+	background: url(radio-button.png);
+	z-index: 1;
+}
+input[type="radio"]:checked + label:before {
+	background: url(radio-button-checked.png);
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery.fancybox.js"></script>
+</head>
+<body>
+<ul class="gallery">
+	<li><a class="fancybox" rel="group" href="gallery-image1.jpg"><img src="gallery-image-icon1.jpg" alt="image"></a></li>
+	<li><a class="fancybox" rel="group" href="gallery-image2.jpg"><img src="gallery-image-icon2.jpg" alt="image"></a></li>
+	<li><a class="fancybox" rel="group" href="gallery-image3.jpg"><img src="gallery-image-icon3.jpg" alt="image"></a></li>
+	<li><a class="fancybox" rel="group" href="gallery-image4.jpg"><img src="gallery-image-icon4.jpg" alt="image"></a></li>
+	<li><a class="fancybox" rel="group" href="gallery-image5.jpg"><img src="gallery-image-icon5.jpg" alt="image"></a></li>
+</ul>
+
+<style>
+.gallery{
+	width: 960px;
+	margin: 50px auto;
+}
+.gallery li{
+	display: inline-block;
+	margin-right: 25px;
+}
+/*----------Fancybox styles---------*/ 
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner, 
+.fancybox-image
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+.fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 8020;
+}
+.fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	background: rgba(0,0,0, 0.7);
+}
+.fancybox-overlay-fixed {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+.fancybox-overlay {
+	overflow: auto;
+	overflow-y: scroll;
+}
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url("../images/fancybox_sprite.png");
+}
+#fancybox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -22px;
+	margin-left: -22px;
+	background-position: 0 -108px;
+	opacity: 0.8;
+	cursor: pointer;
+	z-index: 8060;
+}
+#fancybox-loading div {
+	width: 44px;
+	height: 44px;
+	background: url('../images/fancybox_loading.gif') center center no-repeat;
+}
+.fancybox-nav {
+	position: absolute;
+	top: 0;
+	width: 40%;
+	height: 100%;
+	cursor: pointer;
+	text-decoration: none;
+	background: transparent url('../images/blank.gif');
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	z-index: 8040;
+}
+.fancybox-prev {
+	left: 0;
+}
+.fancybox-next {
+	right: 0;
+}
+.fancybox-nav span {
+	position: absolute;
+	top: 50%;
+	width: 36px;
+	height: 34px;
+	margin-top: -18px;
+	cursor: pointer;
+	z-index: 8040;
+	visibility: hidden;
+}
+.fancybox-prev span {
+	left: 10px;
+	background-position: 0 -36px;
+}
+.fancybox-next span {
+	right: 10px;
+	background-position: 0 -72px;
+}
+.fancybox-nav:hover span {
+	visibility: visible;
+}
+.fancybox-close {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	width: 36px;
+	height: 36px;
+	cursor: pointer;
+	z-index: 8050;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	$(".fancybox").fancybox();
+});
+</script>
+</body>
+</html>

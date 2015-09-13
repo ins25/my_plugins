@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Input mask</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery.maskedinput.min.js"></script>
+</head>
+<body>
+<div class="mask">
+	<input class="phone" type="text" placeholder="+7 (___) ___ __ __">
+</div>
+<style>
+	.mask{
+		width: 300px;
+		margin: 0 auto;
+	}
+	.phone{
+		width: 200px;
+		height: 30px;
+		border: 1px solid blue;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		color: blue;
+		font-size: 20px;
+	}
+</style>
+<script>
+$(document).ready(function(){
+	$(".phone").mask("+7 (999) 999 99 99");
+})
+</script>
+</body>
+</html>

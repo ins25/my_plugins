@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Checkbox</title>
+</head>
+<body>
+<div class="checkbox">
+	<form action="#" method="post">
+		<div class="checkbox-block">
+			<input type="checkbox" id="eng" value="eng" checked>
+			<label for="eng">Английский</label>
+		</div>
+		<div class="checkbox-block">
+			<input type="checkbox" id="rus" value="rus">
+			<label for="rus">Русский</label>
+		</div>
+		<div class="checkbox-block">
+			<input type="checkbox" id="ukr" value="ukr">
+			<label for="ukr">Украинский</label>
+		</div>
+	</form>
+</div>
+<style>
+.checkbox{
+	margin: 0 auto;
+	padding-left: 25px;
+	width: 150px;
+	border: 2px solid #000;
+}
+.checkbox-block{
+	margin-bottom: 5px;
+}
+input[type="checkbox"]{
+	display: none;
+}
+label{
+	position: relative;
+	cursor: pointer;
+}
+label:before{
+	content: '';
+	display: block;
+	position: absolute;
+	left: -23px;
+	width: 19px;
+	height: 19px;
+	background: url(checkbox-button.png);
+	z-index: 1;
+}
+input[type="checkbox"]:checked + label:before {
+	background: url(checkbox-button-checked.png);
+}
+</style>
+</body>
+</html>

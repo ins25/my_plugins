@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Range slider</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery-ui.min.js"></script>
+</head>
+<body>
+<div class="slider-input">
+	<input type="text" id="minCost" value="0">
+	<input type="text" id="maxCost" value="1000">
+</div>
+<div class="slider">
+	<div class="ui-slider-handle"></div>
+</div>
+
+<style>
+/*----------Слайдер----------*/
+.slider{
+	width: 250px;
+}
+.ui-slider{
+	position: relative;
+	height: 10px;
+	background: #fff;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+.ui-slider-range{
+	position: absolute;
+	height: 10px;
+	z-index: 1;
+}
+.ui-slider-handle {
+	position: absolute;
+	top: -3px;
+	margin-left: -6px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background: red;
+	cursor: pointer;
+	z-index: 2;
+}
+.ui-widget-content {
+	border: 1px solid #D4D4D4;
+	background: #fff;
+}
+.ui-widget-header {
+	background: #000;
+}
+/*----------Формы----------*/
+.slider-input{
+	margin-bottom: 10px;
+	width: 250px;
+	text-align: center;
+}
+.slider-input input{
+	width: 100px;
+	height: 25px;
+	border-radius: 10px;
+	text-align: center;
+	border: 2px solid #000;
+	color: red;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	$(".slider").slider({
+		min: 0,
+		max: 1000,
+		range: true,
+		animate: true,
+		values: [0, 1000],
+		stop: function(event, ui) {
+			$("#minCost").val($(".slider").slider("values",0));
+			$("#maxCost").val($(".slider").slider("values",1));
+		},
+		slide: function(event, ui) {
+			$("#minCost").val($(".slider").slider("values",0));
+			$("#maxCost").val($(".slider").slider("values",1));
+		}
+	});
+	$("#minCost").change(function(){
+		var value1 = $("#minCost").val();
+		var value2 = $("#maxCost").val();
+		if(parseInt(value1) > parseInt(value2)){
+			value1 = value2;
+			$("#minCost").val(value1);
+		}
+		$(".slider").slider("values", 0, value1);
+		if(value1 > 1000){
+			value1 = 1000;
+			$("#minCost").val(1000)
+		}
+	});
+	$("#maxCost").change(function(){
+		var value1 = $("#minCost").val();
+		var value2 = $("#maxCost").val();
+		if(parseInt(value1) > parseInt(value2)){
+			value2 = value1;
+			$("#maxCost").val(value2);
+		}
+		$(".slider").slider("values", 1, value2);
+		if(value2 > 1000){
+			value2 = 1000;
+			$("#maxCost").val(1000)
+		}
+	});
+});
+</script>
+</body>
+</html>

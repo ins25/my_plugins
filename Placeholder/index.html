@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Placeholder</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery.placeholder.js"></script>
+</head>
+<body>
+	<input type="text" placeholder="Имя"><br>
+	<input type="email" placeholder="Почта"><br>
+	<input type="tel" placeholder="Телефон"><br>
+	<input type="text" placeholder="Отчество"><br>
+	<textarea placeholder="Напишите о себе"></textarea>	
+</body>
+<style>
+	input{
+		margin-bottom: 20px;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$('input, textarea').placeholder();
+	});	
+</script>
+</html>

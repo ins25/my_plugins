@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slider</title>
+	<script src="jquery-2.1.1.min.js"></script>
+	<script src="jquery.bxslider.min.js"></script>
+</head>
+<body>
+<div class="slider">
+	<ul class="bxslider">
+		<li><a href="#"><img src="slider-image1.jpg" alt="image"></a></li>
+		<li><a href="#"><img src="slider-image2.jpg" alt="image"></a></li>
+		<li><a href="#"><img src="slider-image3.jpg" alt="image"></a></li>
+		<li><a href="#"><img src="slider-image4.jpg" alt="image"></a></li>
+	</ul>
+</div>
+
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+.slider{
+	position: relative;
+	margin: 0 auto;
+	width: 612px;
+}
+.bxpager{
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	text-align: center;
+}
+.bxpager li{
+	display: inline-block;
+	margin-right: 5px;
+}
+.bxpager li a{
+	display: block;
+	width: 13px;
+	height: 13px;
+	background: #fff;
+	border-radius: 50%;
+}
+.bxpager li a:hover, .bxpager li a.active{
+	background: #000;
+}
+.slider .bx-controls-direction a{
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	height: 30px;
+	margin-top: -15px;
+	z-index: 9999;
+}
+.slider .bx-prev {
+	left: -35px;
+	background: url(slider-arrows.png);
+	background-position: -4px -5px;
+	text-indent: -9999px;
+}
+.slider .bx-next {
+	right: -35px;
+	background: url(slider-arrows.png);
+	background-position: -4px 32px;
+	text-indent: -9999px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+		pagerCustom:'.bxpager',
+		controls:true,
+		auto:true,
+		pause:5000,
+	});
+});
+</script>
+
+</body>
+</html>
